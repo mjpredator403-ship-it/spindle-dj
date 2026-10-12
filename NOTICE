@@ -1,0 +1,37 @@
+Spindle DJ
+Copyright (C) 2026 David Blackwood (original author) and Spindle DJ contributors
+
+Spindle DJ was created and originally authored by David Blackwood.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License (LICENSE)
+for more details.
+
+ADDITIONAL TERM (GNU GPL v3, section 7(b) - preservation of author attributions)
+-----------------------------------------------------------------------------
+As permitted by section 7(b) of the GNU General Public License version 3, the
+following reasonable author attribution must be preserved in all copies and
+modified versions of this program and of works based on it:
+
+  1. This NOTICE file, and the copyright and "original author" lines at the top
+     of each source file, must be kept intact. You may add your own copyright
+     lines for your changes.
+
+  2. Any version with an interactive user interface must continue to display,
+     in its "About" screen (or an equivalent place that the user can easily
+     find), the text:
+
+         "Created by David Blackwood"
+
+     If you substantially change the program, you may describe it as
+     "based on Spindle DJ, created by David Blackwood", and you should give
+     your version a different name so users are not confused about its origin.
+
+This term does not restrict anyone's freedom to use, study, share or modify
+the program; it only requires keeping the credit to the original author.
+
+Third-party components and research credits: see THIRD_PARTY_NOTICES.md.

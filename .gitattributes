@@ -1,0 +1,6 @@
+# Keep Unix line endings in the repository and in checkouts, so the shell
+# scripts keep working in WSL/Linux even when the repo is cloned on Windows.
+* text=auto eol=lf
+*.png binary
+*.deb binary
+*.zip binary

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use or build on Spindle DJ, please credit its creator as below."
+title: "Spindle DJ"
+abstract: "A free, open-source two-deck DJ mixing application that runs in Chrome on ChromeOS, Linux and Windows (Web Audio + AudioWorklet)."
+type: software
+authors:
+  - given-names: "David"
+    family-names: "Blackwood"
+    alias: "Creator and original author"
+version: "0.1.0"
+date-released: "2026-10-11"
+license: "GPL-3.0-or-later"
+repository-code: "https://github.com/mjpredator403-ship-it/spindle-dj"
+keywords:
+  - dj
+  - audio
+  - web-audio
+  - chromebook
+  - music
+  - mixer

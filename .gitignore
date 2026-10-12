@@ -1,0 +1,7 @@
+node_modules/
+dist/
+release/
+*.log
+tests/e2e/last-run.json
+tests/e2e/last-screenshot.png
+.DS_Store

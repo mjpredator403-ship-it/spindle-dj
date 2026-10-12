@@ -1,0 +1,50 @@
+# Builds, tests and publishes a GitHub Release when you push a version tag:
+#   git tag v0.1.0 && git push origin v0.1.0
+# Attaches spindle-dj-<version>.zip (source + prebuilt app) and the .deb.
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - uses: browser-actions/setup-chrome@v1
+        id: chrome
+      - run: npm run test:e2e
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+      - run: npm run package:deb
+      - name: Build release zip (source + prebuilt dist)
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p stage
+          git archive --format=tar --prefix=spindle-dj/ HEAD | tar -x -C stage
+          cp -r dist stage/spindle-dj/dist
+          chmod +x stage/spindle-dj/run.sh stage/spindle-dj/install-from-d.sh stage/spindle-dj/scripts/serve.py stage/spindle-dj/packaging/deb/build-deb.sh
+          find stage/spindle-dj/dist -name '*.map' -delete
+          (cd stage && zip -qr "../release/spindle-dj-${VERSION}.zip" spindle-dj)
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: Spindle DJ ${{ github.ref_name }}
+          body: |
+            **Spindle DJ, created by David Blackwood.** Free software (GPL-3.0-or-later).
+
+            * **Use it in the browser:** see the link at the top of the README.
+            * **Chromebook / Linux / Windows (WSL):** download the `.zip`, unzip it, run `./run.sh`, then open http://localhost:8765/ in Chrome or Edge.
+            * **Debian / Ubuntu:** `sudo apt install ./spindle-dj_*_all.deb`
+
+            See CHANGELOG.md for what's new and docs/USER_GUIDE.md for how to use it.
+          files: |
+            release/*.zip
+            release/*.deb

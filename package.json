@@ -1,0 +1,43 @@
+{
+  "name": "spindle-dj",
+  "version": "0.1.0",
+  "description": "Spindle DJ — a free, open-source two-deck DJ mixer that runs in Chrome / ChromeOS / Linux (Web Audio + AudioWorklet).",
+  "author": "David Blackwood (original author)",
+  "contributors": [
+    "Spindle DJ contributors (see AUTHORS.md)"
+  ],
+  "homepage": "https://github.com/mjpredator403-ship-it/spindle-dj",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjpredator403-ship-it/spindle-dj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mjpredator403-ship-it/spindle-dj/issues"
+  },
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "tsc --noEmit && vite build",
+    "preview": "node scripts/serve.mjs dist 4173",
+    "serve": "node scripts/serve.mjs dist 4173",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build && node tests/e2e/run-e2e.mjs",
+    "test:all": "npm run test && npm run test:e2e",
+    "package:deb": "npm run build && bash packaging/deb/build-deb.sh"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.3"
+  },
+  "optionalDependencies": {
+    "playwright-core": "1.64.0"
+  }
+}

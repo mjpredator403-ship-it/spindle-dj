@@ -1,0 +1,42 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Load a track on deck A\n2. Press SYNC on deck B\n3. ..."
+  - type: input
+    id: version
+    attributes:
+      label: Spindle DJ version
+      description: Shown in Settings (gear icon) → About
+      placeholder: "0.1.0"
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Computer
+      options: [Chromebook, Windows, Linux, macOS, Other]
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: "Chrome 150"
+  - type: textarea
+    id: audio
+    attributes:
+      label: Audio / controller details
+      description: Output device, MIDI controller model, and the AUDIO status text from the top bar if relevant.
+  - type: markdown
+    attributes:
+      value: "Please don't attach copyrighted music. Describe the file instead (format, length, bitrate)."

@@ -1,0 +1,23 @@
+name: Share a MIDI controller mapping
+description: Contribute a mapping for a DJ controller
+labels: [controller-mapping]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Controller make and model
+    validations:
+      required: true
+  - type: textarea
+    id: mapping
+    attributes:
+      label: Mapping JSON
+      description: Settings → MIDI → Export mapping, then paste the file contents here.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: What works, what doesn't, firmware version, OS.
